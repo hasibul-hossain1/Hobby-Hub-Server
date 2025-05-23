@@ -71,6 +71,7 @@ async function run() {
 }
 run().catch(console.dir);
 
+//run the server
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`.green);
 });
