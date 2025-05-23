@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
-const dotenv = require("dotenv").config();
+require("dotenv").config();
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
-const colors=require('colors')
+require('colors')
 const uri = `mongodb+srv://${process.env.NAME}:${process.env.PASS}@cluster0.f1kjav4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 const app = express();
@@ -71,7 +71,6 @@ async function run() {
 }
 run().catch(console.dir);
 
-//run the server
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`.green);
-});
+app.listen(port,() => {
+  console.log('Server is running at port '+port);
+})
