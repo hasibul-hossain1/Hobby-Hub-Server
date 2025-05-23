@@ -13,7 +13,6 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -32,7 +31,8 @@ async function run() {
       res.send(result);
     });
     app.put("/groups/:id", async (req, res) => {
-      const query = {_id:new ObjectId(req.params.id)}
+      const {email}=req.body
+      const query = {_id:new ObjectId(req.params.id),email}
       const update={$set:req.body}
       const result = await groups.updateOne(query,update);
       res.send(result);
@@ -60,7 +60,6 @@ async function run() {
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
   } finally {
-    // await client.close();
   }
 }
 run().catch(console.dir);
