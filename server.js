@@ -26,10 +26,13 @@ async function run() {
     await client.connect();
     const groups = client.db("groupdb").collection("groups");
 
+//added post root form get data from form.
     app.post("/groups", async (req, res) => {
       const result = await groups.insertOne(req.body);
       res.send(result);
     });
+
+    // added put root for update data
     app.put("/groups/:id", async (req, res) => {
       const {email}=req.body
       const query = {_id:new ObjectId(req.params.id),email}
@@ -38,17 +41,20 @@ async function run() {
       res.send(result);
     });
 
+    //this is get root for getting data from server
     app.get("/groups", async (req, res) => {
       const result = await groups.find().toArray();
       res.send(result);
     });
 
+    //single get root by id
     app.get("/groups/:id", async (req, res) => {
       const query = new ObjectId(req.params.id);
       const result = await groups.findOne(query);
       res.send(result);
     });
 
+    //remove item 
     app.delete("/groups/:id", async (req, res) => {
       const query = {_id:new ObjectId(req.params.id)}
       const result = await groups.deleteOne(query);
