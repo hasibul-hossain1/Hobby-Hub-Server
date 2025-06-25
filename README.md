@@ -49,7 +49,6 @@ Base URL: http://localhost:3030/
 
 ### ➕ POST `/groups`
 
-```
 {
   "name": "Chess Club",
   "email": "user@example.com",
