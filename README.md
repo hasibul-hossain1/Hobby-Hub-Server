@@ -38,10 +38,10 @@ Base URL: http://localhost:3030/
 |--------|------------------|------------------------------------|---------------|
 | GET    | `/`              | Root route, returns "Hello World" | ❌ No         |
 | GET    | `/groups`        | Get all groups                     | ❌ No         |
-| GET    | `/groups/:id`    | Get a single group by ID           | ❌ No         |
-| POST   | `/groups`        | Create a new group                 | ❌ No         |
+| GET    | `/groups/:id`    | Get a single group by ID           | ✅ Yes (body)        |
+| POST   | `/groups`        | Create a new group                 | ✅ Yes (body)        |
 | PUT    | `/groups/:id`    | Update group (requires email)      | ✅ Yes (body) |
-| DELETE | `/groups/:id`    | Delete a group by ID               | ❌ No         |
+| DELETE | `/groups/:id`    | Delete a group by ID               | ✅ Yes (body)        |
 
 ---
 
